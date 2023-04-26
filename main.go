@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"errors"
 	"fmt"
 	"image"
 	"image/color"
@@ -101,6 +102,19 @@ func DrawText(c *freetype.Context, text string) error {
 }
 
 func SaveToCache(img *image.RGBA, address string) error {
+
+	_, err := os.Stat(cacheDir)
+	if err != nil {
+		if errors.Is(err, os.ErrNotExist) {
+			err = os.Mkdir(cacheDir, os.ModePerm)
+			if err != nil {
+				return fmt.Errorf("creating cache directory: %w", err)
+			}
+		} else {
+			return fmt.Errorf("accessing cache directory: %w", err)
+		}
+	}
+
 	outfile, err := os.Create(fmt.Sprintf("%s/%s.png", cacheDir, address))
 	if err != nil {
 		return fmt.Errorf("creating image file: %w", err)
