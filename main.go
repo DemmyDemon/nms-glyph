@@ -27,7 +27,7 @@ const (
 	fontHinting = font.HintingNone
 	fontSize    = 50
 	cacheDir    = "cache"
-	imgWidth    = 800
+	imgWidth    = 610
 	imgHeight   = 45
 	borderWidth = 1
 )
@@ -218,7 +218,7 @@ func RouteAddress(w http.ResponseWriter, r *http.Request) {
 func main() {
 
 	router := chi.NewRouter()
-	router.Get("/{address:[0-9A-F]{16}}.png", RouteAddress)
+	router.Get("/{address:[0-9A-F]{12}}.png", RouteAddress)
 
 	// Set SKIPEMBED var to nonzero to simplify development of the client-side stuff.
 	// Otherwise, you'll need to recompile with every change to the HTML/CSS/JS...

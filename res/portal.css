@@ -74,7 +74,7 @@ div {
     justify-content: center;
     vertical-align: middle;
     background-color: #0000;
-    background-image: url("/0123456789ABCDEF.png");
+    background-image: url("/glyphs.png");
     border: 0px outset var(--glyph-color);
     color: #FFF3;
     font-size: 40px;
