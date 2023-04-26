@@ -1,0 +1,25 @@
+:root {
+    --glyph-color: #00B0BDFF;
+    --background-color: #000;
+    --foreground-color: #FFF;
+}
+body {
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+}
+h1 {
+    font-size: 3em;
+    margin: 0.5em;
+    font-weight: bold;
+    color: var(--glyph-color);
+}
+
+div {
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid var(--glyph-color);
+}
+
+p {
+    margin-bottom: 1em;
+}
