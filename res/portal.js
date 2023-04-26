@@ -1,4 +1,4 @@
-const validAddress = /[A-Z0-9]{16}/
+const validAddress = /[A-Z0-9]{12}/
 
 document.addEventListener("DOMContentLoaded", (evt)=>{
     document.querySelectorAll("button.glyph").forEach( (emt) => {
@@ -21,8 +21,8 @@ function clickButton(evt) {
 function appendSymbol(symbol) {
     let hexaddressField = document.querySelector("#hexaddress")
     let newValue = hexaddressField.value + symbol
-    if (newValue.length > 16) {
-        newValue = newValue.slice(-16)
+    if (newValue.length > 12) {
+        newValue = newValue.slice(-12)
     }
     hexaddressField.value = newValue
     validate()
