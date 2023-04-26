@@ -61,7 +61,7 @@ func ReadFont(fontPath string) (*truetype.Font, error) {
 
 }
 
-// createBlank creates the blank image to draw the glyphs on
+// CreateBlank creates the blank image to draw the glyphs on
 func CreateBlank() *image.RGBA {
 	img := image.NewRGBA(image.Rect(0, 0, imgWidth, imgHeight))
 	draw.Draw(img, img.Bounds(), bgColorImg, image.Point{}, draw.Src)
