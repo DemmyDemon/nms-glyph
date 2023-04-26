@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Portal address image generator</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="portal.css">
+        <script src="portal.js"></script>
+    </head>
+    <body class="stange">
+        <article>
+            <h1>Portal address image generator</h1>
+            <div>
+                <p>Click symbols in the top row to add them to the address.</p>
+                <p>If the address is already 16 symbols, you will push a symbol off the beginning.</p>
+                <p>Click Load to fetch the portal image. Click clear to clear the address.</p>
+            </div>
+            <div class="buttonrow">
+                <button class="glyph one"      value="0">1</button>
+                <button class="glyph two"      value="1">2</button>
+                <button class="glyph three"    value="2">3</button>
+                <button class="glyph four"     value="3">4</button>
+                <button class="glyph five"     value="4">5</button>
+                <button class="glyph six"      value="5">6</button>
+                <button class="glyph seven"    value="6">7</button>
+                <button class="glyph eight"    value="7">8</button>
+                <button class="glyph nine"     value="8">9</button>
+                <button class="glyph ten"      value="9">10</button>
+                <button class="glyph eleven"   value="A">11</button>
+                <button class="glyph twelve"   value="B">12</button>
+                <button class="glyph thirteen" value="C">13</button>
+                <button class="glyph fourteen" value="D">14</button>
+                <button class="glyph fifteen"  value="E">15</button>
+                <button class="glyph sixteen"  value="F">16</button>
+            </div>
+            <div>
+                <input type="text" value="" id="hexaddress" class="glyphinput">
+                <button id="load" class="glyphish nope" disabled>Load</button>
+                <button id="clear" class="glyphish">Clear</button>
+            </div>
+            <div>
+                <input type="text" value="" id="url" class="glyphinput" disabled>
+            </div>
+            <div>
+                <img id="address" class="hidden" src="/0123456789ABCDEF.png" alt="Portal address">
+            </div>
+        </article>
+    </body>
+</html>
