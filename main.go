@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"embed"
 	"errors"
 	"fmt"
 	"image"
@@ -28,6 +29,11 @@ const (
 )
 
 var (
+	//go:embed res
+	res embed.FS
+)
+
+var (
 	glyphColor    = color.RGBA{0x00, 0xB0, 0xBD, 0xFF}
 	bgColor       = color.RGBA{0x00, 0x00, 0x00, 0x2C}
 	bgColorImg    = image.NewUniform(bgColor)
@@ -37,7 +43,7 @@ var (
 // ReadFont reads font at the given path
 func ReadFont(fontPath string) (*truetype.Font, error) {
 
-	fontBytes, err := os.ReadFile(fontPath)
+	fontBytes, err := res.ReadFile(fontPath)
 	if err != nil {
 		return nil, fmt.Errorf("reading font: %w", err)
 	}
@@ -144,8 +150,6 @@ func CreatePortalImage(address string) (*image.RGBA, error) {
 
 	c := PrepareFreetypeContext(img, font)
 
-	// address := "0123456789ABCDEF"
-
 	err = DrawText(c, address)
 	if err != nil {
 		return nil, err
@@ -177,7 +181,9 @@ func main() {
 	for _, address := range addreses {
 		_, err := GetPortalImage(address)
 		if err != nil {
-			fmt.Printf("Failed to draw image for %s: %s", address, err)
+			fmt.Printf("Failed to draw image for %s: %s\n", address, err)
+			continue
 		}
+		fmt.Printf("Portal address %s now in cache!\n", address)
 	}
 }
